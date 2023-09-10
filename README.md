@@ -12,7 +12,6 @@
 
 ### 👨‍💻 Author
 
-Apps were developed by HypeTeq Software Solutions Pvt. Ltd. [Website](https://hypeteq.com/)
 
 ![](banner.png)
 
