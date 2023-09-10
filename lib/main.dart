@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(375, 812),
-      builder: (BuildContext context, Widget? child) {
+      designSize: ScreenUtil.defaultSize,
+      builder: (BuildContext context, _) {
         return MaterialApp(
           title: 'Laundry App',
           debugShowCheckedModeBanner: false,
@@ -28,35 +28,9 @@ class MyApp extends StatelessWidget {
             visualDensity: VisualDensity.adaptivePlatformDensity,
             textTheme: GoogleFonts.poppinsTextTheme(),
           ),
-          initialRoute: "/",
-          onGenerateRoute: _onGenerateRoute,
+          home: const Home(),
         );
       },
     );
-  }
-}
-
-Route<dynamic> _onGenerateRoute(RouteSettings settings) {
-  switch (settings.name) {
-    case "/":
-      return MaterialPageRoute(builder: (BuildContext context) {
-        return Home();
-      });
-    case "/login":
-      return MaterialPageRoute(builder: (BuildContext context) {
-        return Login();
-      });
-    case "/dashboard":
-      return MaterialPageRoute(builder: (BuildContext context) {
-        return Dashboard();
-      });
-    case "/single-order":
-      return MaterialPageRoute(builder: (BuildContext context) {
-        return SingleOrder();
-      });
-    default:
-      return MaterialPageRoute(builder: (BuildContext context) {
-        return Home();
-      });
   }
 }

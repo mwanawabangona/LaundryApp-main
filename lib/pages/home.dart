@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            flex: 3,
+            flex: 4,
             child: Stack(
               alignment: Alignment.bottomCenter,
               children: [
@@ -44,7 +44,7 @@ class Home extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 2,
+            flex: 3,
             child: Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 20.0,
