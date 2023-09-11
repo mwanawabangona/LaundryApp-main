@@ -95,7 +95,8 @@ class Home extends StatelessWidget {
                     ),
                     AppButton(
                       text: "Create an Account",
-                      type: ButtonType.PRIMARY, onPressed: () {  },
+                      type: ButtonType.PRIMARY, onPressed: () {
+                        nextScreen(context, "/register"); },
                     )
                   ],
                 ),
