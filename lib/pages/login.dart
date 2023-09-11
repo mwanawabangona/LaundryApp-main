@@ -127,9 +127,35 @@ class Login extends StatelessWidget {
                               SizedBox(
                                 height: 20.0,
                               ),
-                              TextButton(onPressed: (){
-                                nextScreen(context, "registerScreen");
-                              }, child: Text("Already Have An Account?")),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Don't have an account?",
+                                    style: TextStyle(
+                                      color: Constants.primaryColor,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 5.0,
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      nextScreen(context, "/register");
+                                    },
+                                    child: Text(
+                                      "Sign Up",
+                                      style: TextStyle(
+                                        color: Constants.primaryColor,
+                                        fontWeight: FontWeight.w600,
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                           
                             ],
                           ),
                         ),
