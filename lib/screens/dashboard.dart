@@ -141,8 +141,8 @@ class _DashboardState extends State<Dashboard> {
                     constraints: BoxConstraints(
                       minHeight: MediaQuery.of(context).size.height - 200.0,
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(30.0),
                         topRight: Radius.circular(30.0),
                       ),
@@ -170,7 +170,7 @@ class _DashboardState extends State<Dashboard> {
                         const SizedBox(height: 7.0),
                         SizedBox(
                           height: ScreenUtil().setHeight(100.0),
-                          child: Center(
+                          child: const Center(
                             // lets make a widget for the cards
                             child: LocationSlider(),
                           ),

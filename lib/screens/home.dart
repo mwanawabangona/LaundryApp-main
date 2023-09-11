@@ -3,7 +3,6 @@ import 'package:laundryapp/screens/login.dart';
 import 'package:laundryapp/services/navigation.dart';
 
 import '../utils/constants.dart';
-import '../utils/helper.dart';
 import '../widgets/app_button.dart';
 
 class Home extends StatelessWidget {
@@ -52,9 +51,9 @@ class Home extends StatelessWidget {
                 horizontal: 20.0,
                 vertical: 24.0,
               ),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Constants.scaffoldBackgroundColor,
-                borderRadius: const BorderRadius.only(
+                borderRadius: BorderRadius.only(
                   topRight: Radius.circular(30.0),
                   topLeft: Radius.circular(30.0),
                 ),
@@ -83,7 +82,7 @@ class Home extends StatelessWidget {
                     text: "Log In",
                     type: ButtonType.PLAIN,
                     onPressed: () {
-                      Navigation.go(screen: Login(), context: context);
+                      Navigation.go(screen: const Login(), context: context);
                     },
                   ),
                   const SizedBox(

@@ -61,8 +61,9 @@ class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
         unselectedFontSize: 10,
         showUnselectedLabels: true,
         unselectedIconTheme: const IconThemeData(color: kGreyColor),
-        unselectedItemColor: Colors.white,
+        unselectedItemColor: kGreyColor,
         selectedLabelStyle: kBodyTextStyleGrey,
+        unselectedLabelStyle: kBodyTextStyleGrey,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.house),

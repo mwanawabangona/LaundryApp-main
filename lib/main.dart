@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:laundryapp/screens/dashboard.dart';
 import 'package:laundryapp/screens/home.dart';
-import 'package:laundryapp/screens/login.dart';
-import 'package:laundryapp/screens/single_order.dart';
 import 'package:laundryapp/utils/constants.dart';
 
 void main() {

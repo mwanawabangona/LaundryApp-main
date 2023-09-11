@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:laundryapp/screens/dashboard.dart';
 import 'package:laundryapp/screens/nav_bar.dart';
 import 'package:laundryapp/services/navigation.dart';
 
 import '../utils/constants.dart';
-import '../utils/helper.dart';
 import '../widgets/app_button.dart';
 import '../widgets/input_widget.dart';
 
@@ -93,14 +91,14 @@ class Login extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               // Lets make a generic input widget
-                              InputWidget(
+                              const InputWidget(
                                 topLabel: "Email",
                                 hintText: "Enter your email address",
                               ),
                               const SizedBox(
                                 height: 25.0,
                               ),
-                              InputWidget(
+                              const InputWidget(
                                 topLabel: "Password",
                                 obscureText: true,
                                 hintText: "Enter your password",
@@ -110,7 +108,7 @@ class Login extends StatelessWidget {
                               ),
                               GestureDetector(
                                 onTap: () {},
-                                child: Text(
+                                child: const Text(
                                   "Forgot Password?",
                                   textAlign: TextAlign.right,
                                   style: TextStyle(

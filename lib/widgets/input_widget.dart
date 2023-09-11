@@ -10,7 +10,7 @@ class InputWidget extends StatelessWidget {
   final String topLabel;
   final bool obscureText;
 
-  InputWidget({
+  const InputWidget({super.key, 
     required this.hintText,
     this.prefixIcon,
     this.height = 48.0,
@@ -22,8 +22,8 @@ class InputWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(this.topLabel),
-        SizedBox(height: 5.0),
+        Text(topLabel),
+        const SizedBox(height: 5.0),
         Container(
           height: ScreenUtil().setHeight(height),
           decoration: BoxDecoration(
@@ -31,20 +31,20 @@ class InputWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(8.0),
           ),
           child: TextFormField(
-            obscureText: this.obscureText,
+            obscureText: obscureText,
             decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(
+              enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Color.fromRGBO(74, 77, 84, 0.2),
                 ),
               ),
-              focusedBorder: OutlineInputBorder(
+              focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Constants.primaryColor,
                 ),
               ),
-              hintText: this.hintText,
-              hintStyle: TextStyle(
+              hintText: hintText,
+              hintStyle: const TextStyle(
                 fontSize: 14.0,
                 color: Color.fromRGBO(105, 108, 121, 0.7),
               ),
