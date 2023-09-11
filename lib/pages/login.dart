@@ -123,7 +123,11 @@ class Login extends StatelessWidget {
                                 onPressed: () {
                                   nextScreen(context, "/dashboard");
                                 },
-                              )
+                              ),
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              TextButton(onPressed: (){}, child: Text("Already Have An Account?")),
                             ],
                           ),
                         ),
