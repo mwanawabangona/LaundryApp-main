@@ -127,7 +127,9 @@ class Login extends StatelessWidget {
                               SizedBox(
                                 height: 20.0,
                               ),
-                              TextButton(onPressed: (){}, child: Text("Already Have An Account?")),
+                              TextButton(onPressed: (){
+                                nextScreen(context, "registerScreen");
+                              }, child: Text("Already Have An Account?")),
                             ],
                           ),
                         ),
