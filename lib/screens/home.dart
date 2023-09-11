@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:laundryapp/screens/login.dart';
+import 'package:laundryapp/services/navigation.dart';
 
 import '../utils/constants.dart';
 import '../utils/helper.dart';
@@ -81,7 +83,7 @@ class Home extends StatelessWidget {
                     text: "Log In",
                     type: ButtonType.PLAIN,
                     onPressed: () {
-                      nextScreen(context, "/login");
+                      Navigation.go(screen: Login(), context: context);
                     },
                   ),
                   const SizedBox(

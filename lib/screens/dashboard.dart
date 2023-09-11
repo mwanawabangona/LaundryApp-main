@@ -7,6 +7,8 @@ import '../widgets/latest_orders.dart';
 import '../widgets/location_slider.dart';
 
 class Dashboard extends StatefulWidget {
+  const Dashboard({super.key});
+
   @override
   _DashboardState createState() => _DashboardState();
 }
@@ -24,27 +26,27 @@ class _DashboardState extends State<Dashboard> {
           Icon(
             Icons.home,
             size: 30.0,
-            color: activeIndex == 0 ? Colors.white : Color(0xFFC8C9CB),
+            color: activeIndex == 0 ? Colors.white : const Color(0xFFC8C9CB),
           ),
           Icon(
             Icons.pin_drop_rounded,
             size: 30.0,
-            color: activeIndex == 1 ? Colors.white : Color(0xFFC8C9CB),
+            color: activeIndex == 1 ? Colors.white : const Color(0xFFC8C9CB),
           ),
           Icon(
             Icons.add,
             size: 30.0,
-            color: activeIndex == 2 ? Colors.white : Color(0xFFC8C9CB),
+            color: activeIndex == 2 ? Colors.white : const Color(0xFFC8C9CB),
           ),
           Icon(
             Icons.favorite,
             size: 30.0,
-            color: activeIndex == 3 ? Colors.white : Color(0xFFC8C9CB),
+            color: activeIndex == 3 ? Colors.white : const Color(0xFFC8C9CB),
           ),
           Icon(
             Icons.settings,
             size: 30.0,
-            color: activeIndex == 4 ? Colors.white : Color(0xFFC8C9CB),
+            color: activeIndex == 4 ? Colors.white : const Color(0xFFC8C9CB),
           ),
         ],
         onTap: (index) {
@@ -73,11 +75,11 @@ class _DashboardState extends State<Dashboard> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: kToolbarHeight,
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 16.0,
                     ),
                     child: Column(
@@ -88,7 +90,7 @@ class _DashboardState extends State<Dashboard> {
                           onTap: () {
                             Navigator.pop(context);
                           },
-                          child: Icon(
+                          child: const Icon(
                             Icons.arrow_back_ios,
                             color: Colors.white,
                           ),
@@ -131,7 +133,7 @@ class _DashboardState extends State<Dashboard> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50.0,
                   ),
                   Container(
@@ -140,20 +142,20 @@ class _DashboardState extends State<Dashboard> {
                       minHeight: MediaQuery.of(context).size.height - 200.0,
                     ),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(30.0),
                         topRight: Radius.circular(30.0),
                       ),
                       color: Constants.scaffoldBackgroundColor,
                     ),
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       vertical: 24.0,
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal: 24.0,
                           ),
@@ -165,8 +167,8 @@ class _DashboardState extends State<Dashboard> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 7.0),
-                        Container(
+                        const SizedBox(height: 7.0),
+                        SizedBox(
                           height: ScreenUtil().setHeight(100.0),
                           child: Center(
                             // lets make a widget for the cards

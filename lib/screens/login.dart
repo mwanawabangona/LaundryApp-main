@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:laundryapp/screens/dashboard.dart';
+import 'package:laundryapp/screens/nav_bar.dart';
+import 'package:laundryapp/services/navigation.dart';
 
 import '../utils/constants.dart';
 import '../utils/helper.dart';
@@ -6,6 +9,8 @@ import '../widgets/app_button.dart';
 import '../widgets/input_widget.dart';
 
 class Login extends StatelessWidget {
+  const Login({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +38,7 @@ class Login extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                           horizontal: 16.0,
                           vertical: 15.0,
                         ),
@@ -44,12 +49,12 @@ class Login extends StatelessWidget {
                               onTap: () {
                                 Navigator.of(context).pop();
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.arrow_back_ios,
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20.0,
                             ),
                             Text(
@@ -65,7 +70,7 @@ class Login extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40.0,
                       ),
                       Flexible(
@@ -76,14 +81,14 @@ class Login extends StatelessWidget {
                             minHeight:
                                 MediaQuery.of(context).size.height - 180.0,
                           ),
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(30.0),
                               topRight: Radius.circular(30.0),
                             ),
                             color: Colors.white,
                           ),
-                          padding: EdgeInsets.all(24.0),
+                          padding: const EdgeInsets.all(24.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
@@ -92,7 +97,7 @@ class Login extends StatelessWidget {
                                 topLabel: "Email",
                                 hintText: "Enter your email address",
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 25.0,
                               ),
                               InputWidget(
@@ -100,7 +105,7 @@ class Login extends StatelessWidget {
                                 obscureText: true,
                                 hintText: "Enter your password",
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 15.0,
                               ),
                               GestureDetector(
@@ -114,14 +119,15 @@ class Login extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20.0,
                               ),
                               AppButton(
                                 type: ButtonType.PRIMARY,
                                 text: "Log In",
                                 onPressed: () {
-                                  nextScreen(context, "/dashboard");
+                                  Navigation.go(
+                                      screen: const NavBar(), context: context);
                                 },
                               )
                             ],
