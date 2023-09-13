@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:laundryapp/constants/text.dart';
+import 'package:laundryapp/screens/orders/orders_screen.dart';
 
 import '../constants/colors.dart';
+import '../widgets/custom_app_bard.dart';
+import 'home/home_screen.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -18,12 +21,24 @@ class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
   @override
   void initState() {
     tabController = TabController(
-      length: 3,
+      length: 4,
       vsync: this,
       initialIndex: 0,
       animationDuration: const Duration(milliseconds: 500),
     );
     super.initState();
+  }
+
+  String getName() {
+    if (_currentIndex == 0) {
+      return 'Home';
+    } else if (_currentIndex == 1) {
+      return 'Orders';
+    } else if (_currentIndex == 2) {
+      return 'Notifications';
+    } else {
+      return 'Profile';
+    }
   }
 
   @override
@@ -35,13 +50,14 @@ class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBar(title: getName()),
       body: SafeArea(
         child: TabBarView(
           physics: const NeverScrollableScrollPhysics(),
           controller: tabController,
           children: const [
-            Center(child: Text('hello world', style: kBodyTextStyleGrey)),
-            Center(child: Text('hello world', style: kBodyTextStyleGrey)),
+            HomeScreen(),
+            OrdersScreen(),
             Center(child: Text('hello world', style: kBodyTextStyleGrey)),
             Center(child: Text('hello world', style: kBodyTextStyleGrey)),
           ],
@@ -72,6 +88,10 @@ class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
           BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.receipt),
             label: 'Orders',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.solidBell),
+            label: 'Notifications',
           ),
           BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.userLarge),
