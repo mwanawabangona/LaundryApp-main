@@ -21,10 +21,12 @@ class _DashboardState extends State<Dashboard> {
         backgroundColor: Constants.scaffoldBackgroundColor,
         buttonBackgroundColor: Constants.primaryColor,
         items: [
+          
           Icon(
             Icons.shopping_cart,
             size: 30.0,
             color: activeIndex == 0 ? Colors.white : Color(0xFFC8C9CB),
+            
           ),
           Icon(
             Icons.add,          size: 30.0,
