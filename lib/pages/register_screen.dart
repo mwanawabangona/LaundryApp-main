@@ -8,7 +8,31 @@ class registerScreen extends StatefulWidget {
   State<registerScreen> createState() => _registerScreenState();
 }
 
+
 class _registerScreenState extends State<registerScreen> {
+  final _formKey = GlobalKey<FormState>();
+
+  bool _isLoadding = false;
+
+  late String email;
+  late String password;
+  late String confirmPassword;
+  late String fullName;
+
+  registerUser() async{
+    if(_formKey.currentState!.validate()){
+      setState(() {
+        _isLoadding = true;
+      });
+      await Future.delayed(Duration(seconds: 3));
+      setState(() {
+        _isLoadding = false;
+      });
+    }
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -104,7 +128,16 @@ class _registerScreenState extends State<registerScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
-                                TextField(
+                                TextFormField(
+                                  onChanged: (value) {
+                                    email = value;  
+                                  },
+                                  validator: (value){
+                                    if(value!.isEmpty){
+                                      return "Please enter your email";
+                                    }
+                                    return null;
+                                  },
                                   decoration: InputDecoration(
                                     labelText: "Full Name",
                                     labelStyle: Theme.of(context)
@@ -137,6 +170,15 @@ class _registerScreenState extends State<registerScreen> {
                                   height: 20.0,
                                 ),
                                 TextFormField(
+                                  onChanged: (value) {
+                                    email = value;  
+                                  },
+                                  validator: (value){
+                                    if(value!.isEmpty){
+                                      return "Please enter your email";
+                                    }
+                                    return null;
+                                  },
                                   decoration: InputDecoration(
                                     labelText: "Email Address",
                                     labelStyle: Theme.of(context)
@@ -169,6 +211,15 @@ class _registerScreenState extends State<registerScreen> {
                                   height: 20.0,
                                 ),
                                 TextFormField(
+                                  onChanged: (value) {
+                                    email = value;  
+                                  },
+                                  validator: (value){
+                                    if(value!.isEmpty){
+                                      return "PassWord Cannot be empty";
+                                    }
+                                    return null;
+                                  },
                                   decoration: InputDecoration(
                                     labelText: "Password",
                                     labelStyle: Theme.of(context)
@@ -201,6 +252,15 @@ class _registerScreenState extends State<registerScreen> {
                                   height: 20.0,
                                 ),
                                 TextFormField(
+                                  onChanged: (value) {
+                                    email = value;  
+                                  },
+                                  validator: (value){
+                                    if(value! == password){
+                                      return "PassWord dont match";
+                                    }
+                                    return null;
+                                  },
                                   decoration: InputDecoration(
                                     labelText: "Confirm Password",
                                     labelStyle: Theme.of(context)
@@ -235,8 +295,10 @@ class _registerScreenState extends State<registerScreen> {
                                 Container(
                                   width: double.infinity,
                                   child: ElevatedButton(
-                                    onPressed: () {},
-                                    child: Text("Sign Up"),
+                                    onPressed: () {
+                                      registerUser();
+                                    },
+                                    child: _isLoadding? CircularProgressIndicator(color: Colors.white,): Text("Sign Up"),
                                     style: ElevatedButton.styleFrom(
                                       primary: Constants.primaryColor,
                                       padding: EdgeInsets.symmetric(

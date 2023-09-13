@@ -58,47 +58,49 @@ class Home extends StatelessWidget {
                     topLeft: Radius.circular(30.0),
                   ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 20.0),
-                    Text(
-                      "Welcome to Laundree!",
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                            fontWeight: FontWeight.w600,
-                            color: Color.fromRGBO(19, 22, 33, 1),
-                          ),
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Text(
-                      "This is the first version of our laundry app. Please sign in or create an account below.",
-                      style: TextStyle(
-                        color: Color.fromRGBO(74, 77, 84, 1),
-                        fontSize: 14.0,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 20.0),
+                      Text(
+                        "Welcome to Laundree!",
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: Color.fromRGBO(19, 22, 33, 1),
+                            ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 40.0,
-                    ),
-                    // Let's create a generic button widget
-                    AppButton(
-                      text: "Log In",
-                      type: ButtonType.PLAIN,
-                      onPressed: () {
-                        nextScreen(context, "/login");
-                      },
-                    ),
-                    SizedBox(
-                      height: 15.0,
-                    ),
-                    AppButton(
-                      text: "Create an Account",
-                      type: ButtonType.PRIMARY, onPressed: () {
-                        nextScreen(context, "/register"); },
-                    )
-                  ],
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        "This is the first version of our laundry app. Please sign in or create an account below.",
+                        style: TextStyle(
+                          color: Color.fromRGBO(74, 77, 84, 1),
+                          fontSize: 14.0,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 40.0,
+                      ),
+                      // Let's create a generic button widget
+                      AppButton(
+                        text: "Log In",
+                        type: ButtonType.PLAIN,
+                        onPressed: () {
+                          nextScreen(context, "/login");
+                        },
+                      ),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      AppButton(
+                        text: "Create an Account",
+                        type: ButtonType.PRIMARY, onPressed: () {
+                          nextScreen(context, "/register"); },
+                      )
+                    ],
+                  ),
                 ),
               ),
             )

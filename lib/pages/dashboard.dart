@@ -22,27 +22,26 @@ class _DashboardState extends State<Dashboard> {
         buttonBackgroundColor: Constants.primaryColor,
         items: [
           Icon(
-            Icons.home,
+            Icons.shopping_cart,
             size: 30.0,
             color: activeIndex == 0 ? Colors.white : Color(0xFFC8C9CB),
           ),
           Icon(
-            Icons.pin_drop_rounded,
-            size: 30.0,
+            Icons.add,          size: 30.0,
             color: activeIndex == 1 ? Colors.white : Color(0xFFC8C9CB),
           ),
           Icon(
-            Icons.add,
+            Icons.home,
             size: 30.0,
             color: activeIndex == 2 ? Colors.white : Color(0xFFC8C9CB),
           ),
           Icon(
-            Icons.favorite,
+            Icons.notifications,
             size: 30.0,
             color: activeIndex == 3 ? Colors.white : Color(0xFFC8C9CB),
           ),
           Icon(
-            Icons.settings,
+            Icons.person,
             size: 30.0,
             color: activeIndex == 4 ? Colors.white : Color(0xFFC8C9CB),
           ),
@@ -109,7 +108,7 @@ class _DashboardState extends State<Dashboard> {
                                         ),
                                   ),
                                   TextSpan(
-                                    text: "Hypeteq!",
+                                    text: "User!",
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleLarge
