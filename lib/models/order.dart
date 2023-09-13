@@ -8,6 +8,7 @@ class Order {
   final String deliveryAddress;
 
   Order({
+    
     required this.id,
     required this.status,
     required this.arrivalDate,
