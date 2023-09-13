@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,6 +8,7 @@ import 'package:laundryapp/pages/login.dart';
 import 'package:laundryapp/pages/register_screen.dart';
 import 'package:laundryapp/pages/single_order.dart';
 import 'package:laundryapp/utils/constants.dart';
+import 'package:page_transition/page_transition.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
             visualDensity: VisualDensity.adaptivePlatformDensity,
             textTheme: GoogleFonts.poppinsTextTheme(),
           ),
-          initialRoute: "/",
+          initialRoute: "/splash",
           onGenerateRoute: _onGenerateRoute,
         );
       },
@@ -56,14 +58,48 @@ Route<dynamic> _onGenerateRoute(RouteSettings settings) {
         return SingleOrder();
       });
 
-      case "/register":
+    case "/splash":
+      return MaterialPageRoute(builder: (BuildContext context) {
+        return SplashScreen();
+      });
+
+    case "/register":
       return MaterialPageRoute(builder: (BuildContext context) {
         return registerScreen();
       });
-      
+
     default:
       return MaterialPageRoute(builder: (BuildContext context) {
         return Home();
       });
+  }
+}
+
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedSplashScreen(
+        splash: Column(
+          children: [
+            Image.asset("assets/images/chappa.png"),
+            Text(
+              "Chappa Laundry",
+              style: TextStyle(
+                fontSize: 30.sp,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+        backgroundColor: Colors.blue,
+        nextScreen: Home(),
+        splashIconSize: 250,
+        splashTransition: SplashTransition.slideTransition,
+        duration: 3000,
+        pageTransitionType: PageTransitionType.leftToRightWithFade,
+        animationDuration: Duration(milliseconds: 1000));
   }
 }
