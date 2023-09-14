@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:laundryapp/models/product.dart';
+import 'package:provider/provider.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text.dart';
+import '../../providers/products.dart';
 
 class CartCard extends StatelessWidget {
-  const CartCard({
-    super.key,
-  });
+  final Product prod;
+  const CartCard({super.key, required this.prod});
 
   @override
   Widget build(BuildContext context) {
@@ -24,27 +26,29 @@ class CartCard extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Jeans', style: kBodyTextStyleGrey),
+              Text(prod.name, style: kBodyTextStyleGrey),
               const SizedBox(height: 5),
-              Text('ZMW 25',
+              Text('ZMW ${prod.price}',
                   style: kBodyTitleTextStyleGrey.copyWith(fontSize: 13)),
             ],
           ),
           const Spacer(),
           InkWell(
-            onTap: () {},
+            onTap: () => Provider.of<Products>(context, listen: false)
+                .changeQty(prod, true),
             child: const Icon(
               Icons.remove_circle_rounded,
               color: kPrimaryColor,
               size: 30,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text('3', style: kBodyTitleTextStyleGrey),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text('${prod.qty}', style: kBodyTitleTextStyleGrey),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () => Provider.of<Products>(context, listen: false)
+                .changeQty(prod, false),
             child: const Icon(
               Icons.add_circle_rounded,
               color: kPrimaryColor,

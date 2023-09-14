@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisSpacing: 15.0,
               ),
               itemBuilder: (context, index) =>
-                  ServiceCard(service: products[index]),
+                  ServiceCard(prod: products[index]),
               itemCount: products.length,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
