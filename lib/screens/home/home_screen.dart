@@ -14,9 +14,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<String> services = [
-    'Dry Cleaning',
-    'Luandry',
-    'Pressing Service',
+    'Shirt',
+    'Trousers',
+    'Skirts',
+    'Sweater',
+    'Track suit',
   ];
   @override
   Widget build(BuildContext context) {
@@ -46,10 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 10.0),
-              child: Text('Services', style: kBodyTitleTextStyleGrey),
+              child: Text('Laundry Services', style: kBodyTitleTextStyleGrey),
             ),
             GridView.builder(
-              padding: const EdgeInsets.only(top: 0),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 1,

@@ -50,7 +50,9 @@ class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: getName()),
+      appBar: CustomAppBar(
+          title: getName(),
+          actions: [IconButton(onPressed: () {}, icon: icon)]),
       body: SafeArea(
         child: TabBarView(
           physics: const NeverScrollableScrollPhysics(),

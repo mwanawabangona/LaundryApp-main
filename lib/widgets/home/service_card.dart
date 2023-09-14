@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laundryapp/constants/colors.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../constants/text.dart';
 
 class ServiceCard extends StatelessWidget {
@@ -22,9 +22,20 @@ class ServiceCard extends StatelessWidget {
         ],
         borderRadius: BorderRadius.circular(10.0),
       ),
-      child: Center(
-          child: Text(service,
-              style: kBodyTitleTextStyleGrey.copyWith(color: kPrimaryColor))),
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(
+            FontAwesomeIcons.plus,
+            size: 60,
+            color: kPrimaryColor,
+          ),
+          const SizedBox(height: 10),
+          Text(service,
+              style: kBodyTitleTextStyleGrey.copyWith(color: kPrimaryColor)),
+        ],
+      ),
     );
   }
 }
