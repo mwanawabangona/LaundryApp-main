@@ -1,11 +1,11 @@
-class Cart {
+class Product {
   String name;
   double price;
   int qty;
 
-  Cart({
+  Product({
     required this.name,
     required this.price,
-    required this.qty,
+    this.qty = 1,
   });
 }

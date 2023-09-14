@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:laundryapp/constants/colors.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:laundryapp/models/product.dart';
 import '../../constants/text.dart';
 
 class ServiceCard extends StatelessWidget {
-  final String service;
+  final Product service;
   const ServiceCard({super.key, required this.service});
 
   @override
@@ -26,14 +26,22 @@ class ServiceCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(
-            FontAwesomeIcons.plus,
-            size: 60,
-            color: kPrimaryColor,
-          ),
-          const SizedBox(height: 10),
-          Text(service,
+          const Spacer(),
+          Text(service.name,
               style: kBodyTitleTextStyleGrey.copyWith(color: kPrimaryColor)),
+          const SizedBox(height: 5),
+          Text('${service.price} ZMW / piece', style: kBodyTextStyleGrey),
+          const Spacer(),
+          Container(
+            padding: const EdgeInsets.all(5.0),
+            color: kPrimaryColor,
+            width: double.infinity,
+            alignment: Alignment.center,
+            child: const Text(
+              'Add to Cart',
+              style: kBodyTextStyleWhite,
+            ),
+          ),
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/text.dart';
+import '../../models/product.dart';
 import '../../widgets/home/service_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,12 +14,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> services = [
-    'Shirt',
-    'Trouser',
-    'Skirt',
-    'Sweater',
-    'Track suit',
+  List<Product> products = [
+    Product(name: 'Shirt', price: 15),
+    Product(name: 'Trousers', price: 60),
+    Product(name: 'Jersey', price: 50),
+    Product(name: 'Skirt', price: 20),
+    Product(name: 'Sweater', price: 55),
+    Product(name: 'Blankets', price: 120),
   ];
   @override
   Widget build(BuildContext context) {
@@ -48,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 10.0),
-              child: Text('Laundry Services', style: kBodyTitleTextStyleGrey),
+              child: Text('Laundry products', style: kBodyTitleTextStyleGrey),
             ),
             GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -58,8 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisSpacing: 15.0,
               ),
               itemBuilder: (context, index) =>
-                  ServiceCard(service: services[index]),
-              itemCount: services.length,
+                  ServiceCard(service: products[index]),
+              itemCount: products.length,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
             ),
