@@ -15,7 +15,19 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: 'Cart', showLeading: true),
+      appBar: CustomAppBar(
+        title: 'Cart',
+        showLeading: true,
+        actions: [
+          IconButton(
+              onPressed: () =>
+                  Provider.of<Products>(context, listen: false).clearCart(),
+              icon: const Icon(
+                FontAwesomeIcons.trash,
+                color: Colors.redAccent,
+              ))
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: Consumer<Products>(
@@ -25,9 +37,9 @@ class CartScreen extends StatelessWidget {
                 visible: value.cartItems.isNotEmpty,
                 child: Row(
                   children: [
-                    const Text('Total Clothes', style: kBodyTextStyleGrey),
+                    const Text('Total Garments', style: kBodyTextStyleGrey),
                     const Spacer(),
-                    Text('${value.cartItems.length} selected',
+                    Text('${value.totalClothes} selected',
                         style:
                             kBodyTextStyleGrey.copyWith(color: kPrimaryColor)),
                   ],
@@ -53,8 +65,8 @@ class CartScreen extends StatelessWidget {
                         ? ListView.separated(
                             itemBuilder: (_, i) =>
                                 CartCard(prod: value.cartItems[i]),
-                            separatorBuilder: (_, __) =>
-                                Container(color: kGreyColor.withOpacity(.5)),
+                            separatorBuilder: (_, __) => Container(
+                                color: kGreyColor.withOpacity(.15), height: 1),
                             itemCount: value.cartItems.length,
                             shrinkWrap: true,
                           )
@@ -68,9 +80,9 @@ class CartScreen extends StatelessWidget {
                       visible: value.cartItems.isNotEmpty,
                       child: Row(
                         children: [
-                          const Text('Sub Total', style: kBodyTextStyleGrey),
+                          const Text('Total', style: kBodyTextStyleGrey),
                           const Spacer(),
-                          Text('ZMW 25',
+                          Text('ZMW ${value.total}',
                               style: kBodyTitleTextStyleGrey.copyWith(
                                   fontSize: 13, color: kPrimaryColor)),
                         ],

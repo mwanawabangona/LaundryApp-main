@@ -15,6 +15,22 @@ class Products with ChangeNotifier {
     notifyListeners();
   }
 
+  double get total {
+    double sum = 0.0;
+    for (var element in _cartItems) {
+      sum += element.price * element.qty;
+    }
+    return sum;
+  }
+
+  int get totalClothes {
+    int sum = 0;
+    for (var element in _cartItems) {
+      sum += element.qty;
+    }
+    return sum;
+  }
+
   void changeQty(Product prod, bool isDecrease) {
     if (isDecrease && prod.qty > 1) {
       prod.qty--;
@@ -23,6 +39,11 @@ class Products with ChangeNotifier {
         prod.qty++;
       }
     }
+    notifyListeners();
+  }
+
+  void clearCart() {
+    _cartItems.clear();
     notifyListeners();
   }
 }
