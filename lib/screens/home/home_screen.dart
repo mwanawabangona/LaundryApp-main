@@ -15,8 +15,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<String> services = [
     'Shirt',
-    'Trousers',
-    'Skirts',
+    'Trouser',
+    'Skirt',
     'Sweater',
     'Track suit',
   ];

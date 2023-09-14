@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
           title: 'Laundry App',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
+            useMaterial3: true,
             scaffoldBackgroundColor: Constants.scaffoldBackgroundColor,
             visualDensity: VisualDensity.adaptivePlatformDensity,
             textTheme: GoogleFonts.poppinsTextTheme(),

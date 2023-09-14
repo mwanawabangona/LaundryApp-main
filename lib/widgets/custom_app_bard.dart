@@ -24,7 +24,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.white,
       titleSpacing: 0,
       title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           showLeading
               ? IconButton(
@@ -33,33 +32,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   },
                   icon: const Icon(
                     Icons.chevron_left_rounded,
-                    color: Colors.black,
+                    color: kPrimaryColor,
                   ),
                 )
-              : SizedBox(width: showLeading ? 0 : 10),
+              : SizedBox(width: showLeading ? 0 : 15),
           Text(title,
               style: kTitleTextStyle.copyWith(
                 color: kPrimaryColor,
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
               )),
-          showLeading
-              ? Opacity(
-                  opacity: 0.0,
-                  child: IconButton(
-                    onPressed: () {
-                      // Navigator.of(context).pop();
-                    },
-                    icon: const Icon(
-                      Icons.chevron_left_rounded,
-                      color: Colors.black,
-                    ),
-                  ),
-                )
-              : SizedBox(width: showLeading ? 0 : 10),
         ],
       ),
-      elevation: 0.0,
+      elevation: 1.0,
       actions: actions ?? [],
     );
   }

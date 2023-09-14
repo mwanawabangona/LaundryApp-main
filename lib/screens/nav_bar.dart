@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:laundryapp/constants/text.dart';
+import 'package:laundryapp/screens/home/cart_screen.dart';
 import 'package:laundryapp/screens/orders/orders_screen.dart';
+import 'package:laundryapp/services/navigation.dart';
 
 import '../constants/colors.dart';
 import '../widgets/custom_app_bard.dart';
@@ -50,9 +52,15 @@ class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-          title: getName(),
-          actions: [IconButton(onPressed: () {}, icon: icon)]),
+      appBar: CustomAppBar(title: getName(), actions: [
+        IconButton(
+            onPressed: () =>
+                Navigation.go(screen: const CartScreen(), context: context),
+            icon: const Icon(
+              FontAwesomeIcons.cartShopping,
+              color: kPrimaryColor,
+            ))
+      ]),
       body: SafeArea(
         child: TabBarView(
           physics: const NeverScrollableScrollPhysics(),
