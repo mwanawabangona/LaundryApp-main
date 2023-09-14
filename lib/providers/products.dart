@@ -43,6 +43,9 @@ class Products with ChangeNotifier {
   }
 
   void clearCart() {
+    for (var prod in _cartItems) {
+      prod.qty = 1;
+    }
     _cartItems.clear();
     notifyListeners();
   }

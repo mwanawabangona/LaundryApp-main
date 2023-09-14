@@ -4,6 +4,7 @@ import 'package:laundryapp/constants/colors.dart';
 import 'package:laundryapp/constants/text.dart';
 import 'package:laundryapp/models/product.dart';
 import 'package:laundryapp/providers/products.dart';
+import 'package:laundryapp/widgets/custom_button.dart';
 import 'package:provider/provider.dart';
 
 import '../../widgets/custom_app_bard.dart';
@@ -90,6 +91,11 @@ class CartScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              const SizedBox(height: 15),
+              Visibility(
+                visible: value.cartItems.isNotEmpty,
+                child: CustomButton(btnText: 'Order', click: () {}),
               ),
             ],
           ),
