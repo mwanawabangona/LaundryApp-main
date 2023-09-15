@@ -42,10 +42,16 @@ class _DashboardState extends State<Dashboard> {
             size: 30.0,
             color: activeIndex == 3 ? Colors.white : Color(0xFFC8C9CB),
           ),
-          Icon(
-            Icons.person,
-            size: 30.0,
-            color: activeIndex == 4 ? Colors.white : Color(0xFFC8C9CB),
+          GestureDetector(
+            child: Icon(
+              Icons.person,
+              size: 30.0,
+              color: activeIndex == 4 ? Colors.white : Color(0xFFC8C9CB),
+              
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/user-profile');
+            },
           ),
         ],
         onTap: (index) {
