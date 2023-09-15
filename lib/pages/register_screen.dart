@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:laundryapp/controller/auth_controller.dart';
 import 'package:laundryapp/utils/constants.dart';
 
@@ -28,6 +29,7 @@ class _registerScreenState extends State<registerScreen> {
       String res = await _authController.createNewUser(
           email, fullName, password, confirmPassword);
       if (res == "success") {
+        Get.snackbar('Account', 'Account created successfully');
         Navigator.of(context).pushNamed("/login");
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -180,11 +182,9 @@ class _registerScreenState extends State<registerScreen> {
                                       ),
                                     ),
                                   ),
-
                                   SizedBox(
                                     height: 20.0,
                                   ),
-
                                   TextFormField(
                                     onChanged: (value) {
                                       email = value;
@@ -226,11 +226,9 @@ class _registerScreenState extends State<registerScreen> {
                                       ),
                                     ),
                                   ),
-
                                   SizedBox(
                                     height: 20.0,
                                   ),
-
                                   TextFormField(
                                     onChanged: (value) {
                                       password = value;
@@ -272,11 +270,9 @@ class _registerScreenState extends State<registerScreen> {
                                       ),
                                     ),
                                   ),
-
                                   SizedBox(
                                     height: 20.0,
                                   ),
-
                                   TextFormField(
                                     onChanged: (value) {
                                       confirmPassword = value;

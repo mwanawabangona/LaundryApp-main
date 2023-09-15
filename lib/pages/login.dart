@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:laundryapp/controller/auth_controller.dart';
 
 import '../utils/constants.dart';
@@ -22,6 +23,13 @@ class _LoginState extends State<Login> {
     if (_formKey.currentState!.validate()) {
      await _authController.loginUser(email, password).then((value) {
         if (value == 'success') {
+          Get.snackbar(
+            "Success",
+            "Login Successful",
+            snackPosition: SnackPosition.BOTTOM,
+            backgroundColor: Colors.green,
+            colorText: Colors.white,
+          );
           Navigator.of(context).pushNamed("/dashboard");
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
