@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import '../constants/colors.dart';
 import '../widgets/custom_app_bard.dart';
 import 'home/home_screen.dart';
+import 'notifications/notifications_screen.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -96,7 +97,7 @@ class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
           children: const [
             HomeScreen(),
             OrdersScreen(),
-            Center(child: Text('hello world', style: kBodyTextStyleGrey)),
+            NotificationsScreen(),
             Center(child: Text('hello world', style: kBodyTextStyleGrey)),
           ],
         ),
