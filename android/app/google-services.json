@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "834186793727",
+    "project_id": "thematic-envoy-398505",
+    "storage_bucket": "thematic-envoy-398505.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834186793727:android:711964d4e3f068a96c72ca",
+        "android_client_info": {
+          "package_name": "com.chappa.laundryapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH1sl9eNSuWqDJWYqzygFUij1FyCv-iuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
