@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:laundryapp/constants/text.dart';
+import 'package:laundryapp/providers/products.dart';
 import 'package:laundryapp/screens/home/cart_screen.dart';
 import 'package:laundryapp/screens/orders/orders_screen.dart';
 import 'package:laundryapp/services/navigation.dart';
+import 'package:provider/provider.dart';
 
 import '../constants/colors.dart';
 import '../widgets/custom_app_bard.dart';
@@ -56,9 +58,35 @@ class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
         IconButton(
             onPressed: () =>
                 Navigation.go(screen: const CartScreen(), context: context),
-            icon: const Icon(
-              FontAwesomeIcons.cartShopping,
-              color: kPrimaryColor,
+            icon: Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  const Icon(
+                    FontAwesomeIcons.cartShopping,
+                    color: kPrimaryColor,
+                  ),
+                  Consumer<Products>(
+                    builder: (_, val, __) => Visibility(
+                      visible: val.cartItems.isNotEmpty,
+                      child: Positioned(
+                        top: -10,
+                        right: -10,
+                        child: Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: const BoxDecoration(
+                            color: kPrimaryColor,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Text(val.totalClothes.toString(),
+                              style: kBodyTextStyleWhite),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ))
       ]),
       body: SafeArea(
