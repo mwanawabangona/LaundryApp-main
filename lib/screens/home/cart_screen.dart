@@ -25,7 +25,7 @@ class CartScreen extends StatelessWidget {
                   Provider.of<Products>(context, listen: false).clearCart(),
               icon: const Icon(
                 FontAwesomeIcons.trash,
-                color: Colors.redAccent,
+                color: Colors.red,
               ))
         ],
       ),

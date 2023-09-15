@@ -54,4 +54,11 @@ class Products with ChangeNotifier {
     _cartItems.clear();
     notifyListeners();
   }
+
+  void removeItemfromCart(Product prod) {
+    Toast.showToast(message: '${prod.name} removed', type: ToastType.success);
+    prod.qty = 1;
+    _cartItems.remove(prod);
+    notifyListeners();
+  }
 }

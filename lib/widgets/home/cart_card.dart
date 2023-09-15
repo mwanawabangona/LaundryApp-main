@@ -55,6 +55,16 @@ class CartCard extends StatelessWidget {
               size: 30,
             ),
           ),
+          const SizedBox(width: 8),
+          InkWell(
+            onTap: () => Provider.of<Products>(context, listen: false)
+                .removeItemfromCart(prod),
+            child: const Icon(
+              FontAwesomeIcons.trash,
+              color: Colors.red,
+              size: 18,
+            ),
+          ),
         ],
       ),
     );
