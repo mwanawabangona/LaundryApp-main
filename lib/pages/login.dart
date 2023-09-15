@@ -4,18 +4,33 @@ import 'package:laundryapp/controller/auth_controller.dart';
 import '../utils/constants.dart';
 import '../utils/helper.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   final AuthController _authController = AuthController();
+
   final _formKey = GlobalKey<FormState>();
 
   late String email;
+
   late String password;
 
-  loginUser() {
+  loginUser() async {
     if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
-      print("Email: $email");
-      print("Password: $password");
+     await _authController.loginUser(email, password).then((value) {
+        if (value == 'success') {
+          Navigator.of(context).pushNamed("/dashboard");
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(value),
+            ),
+          );
+        }
+      });
     }
   }
 
