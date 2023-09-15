@@ -1,4 +1,6 @@
 import 'package:flutter/foundation.dart';
+import 'package:laundryapp/constants/constants.dart';
+import 'package:laundryapp/widgets/custom_toast.dart';
 
 import '../models/product.dart';
 
@@ -7,6 +9,8 @@ class Products with ChangeNotifier {
   List<Product> get cartItems => _cartItems;
 
   void addToCart(Product prod) {
+    Toast.showToast(
+        message: '${prod.name} added to cart', type: ToastType.success);
     if (_cartItems.contains(prod)) {
       prod.qty++;
     } else {
@@ -43,6 +47,7 @@ class Products with ChangeNotifier {
   }
 
   void clearCart() {
+    Toast.showToast(message: 'Cart cleared', type: ToastType.success);
     for (var prod in _cartItems) {
       prod.qty = 1;
     }

@@ -5,6 +5,7 @@ import 'package:laundryapp/providers/products.dart';
 import 'package:laundryapp/screens/home.dart';
 import 'package:laundryapp/utils/constants.dart';
 import 'package:provider/provider.dart';
+import 'package:bot_toast/bot_toast.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +27,8 @@ class MyApp extends StatelessWidget {
           child: MaterialApp(
             title: 'Laundry App',
             debugShowCheckedModeBanner: false,
+            builder: BotToastInit(),
+            navigatorObservers: [BotToastNavigatorObserver()],
             theme: ThemeData(
               useMaterial3: true,
               scaffoldBackgroundColor: Constants.scaffoldBackgroundColor,
