@@ -9,6 +9,7 @@ import 'package:laundryapp/pages/home.dart';
 import 'package:laundryapp/pages/login.dart';
 import 'package:laundryapp/pages/register_screen.dart';
 import 'package:laundryapp/pages/single_order.dart';
+import 'package:laundryapp/pages/user_profile.dart';
 import 'package:laundryapp/utils/constants.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -70,6 +71,11 @@ Route<dynamic> _onGenerateRoute(RouteSettings settings) {
     case "/register":
       return MaterialPageRoute(builder: (BuildContext context) {
         return registerScreen();
+      });
+
+      case "/user-profile":
+      return MaterialPageRoute(builder: (BuildContext context) {
+        return userProfile();
       });
 
     default:
