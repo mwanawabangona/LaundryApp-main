@@ -30,7 +30,7 @@ class _LoginState extends State<Login> {
             backgroundColor: Colors.green,
             colorText: Colors.white,
           );
-          Navigator.of(context).pushNamed("/dashboard");
+          Navigator.of(context).pushNamed("/Nav-bar");
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

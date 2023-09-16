@@ -4,14 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:laundryapp/pages/dashboard.dart';
-import 'package:laundryapp/pages/home.dart';
-import 'package:laundryapp/pages/login.dart';
-import 'package:laundryapp/pages/register_screen.dart';
-import 'package:laundryapp/pages/single_order.dart';
-import 'package:laundryapp/pages/user_profile.dart';
+import 'package:laundryapp/screens/dashboard.dart';
+import 'package:laundryapp/screens/home.dart';
+import 'package:laundryapp/screens/login.dart';
+import 'package:laundryapp/screens/register_screen.dart';
+import 'package:laundryapp/screens/single_order.dart';
+import 'package:laundryapp/screens/user_profile.dart';
+import 'package:laundryapp/screens/home/home_screen.dart';
+import 'package:laundryapp/screens/nav_bar.dart';
 import 'package:laundryapp/utils/constants.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
+
+import 'providers/products.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +33,9 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(375, 812),
       builder: (BuildContext context, Widget? child) {
-        return GetMaterialApp(
+        return MultiProvider(providers: [ChangeNotifierProvider(create: (_) => Products()),
+        ],
+        child: GetMaterialApp(
           title: 'Laundry App',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
@@ -38,6 +45,7 @@ class MyApp extends StatelessWidget {
           ),
           initialRoute: "/splash",
           onGenerateRoute: _onGenerateRoute,
+        )
         );
       },
     );
@@ -76,6 +84,16 @@ Route<dynamic> _onGenerateRoute(RouteSettings settings) {
       case "/user-profile":
       return MaterialPageRoute(builder: (BuildContext context) {
         return userProfile();
+      });
+
+      case "/Nav-bar":
+      return MaterialPageRoute(builder: (BuildContext context) {
+        return NavBar();
+      });
+
+      case "/home-screen":
+      return MaterialPageRoute(builder: (BuildContext context) {
+        return HomeScreen();
       });
 
     default:
