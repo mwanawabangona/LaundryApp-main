@@ -4,6 +4,7 @@ import 'package:laundryapp/constants/text.dart';
 import 'package:laundryapp/providers/products.dart';
 import 'package:laundryapp/screens/home/cart_screen.dart';
 import 'package:laundryapp/screens/orders/orders_screen.dart';
+import 'package:laundryapp/screens/user_profile.dart';
 import 'package:laundryapp/services/navigation.dart';
 import 'package:provider/provider.dart';
 
@@ -98,7 +99,7 @@ class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
             HomeScreen(),
             OrdersScreen(),
             NotificationsScreen(),
-            Center(child: Text('hello world', style: kBodyTextStyleGrey)),
+            userProfile(),
           ],
         ),
       ),
