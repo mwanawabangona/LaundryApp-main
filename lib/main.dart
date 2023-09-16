@@ -15,7 +15,7 @@ import 'package:laundryapp/screens/nav_bar.dart';
 import 'package:laundryapp/utils/constants.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-
+import 'package:bot_toast/bot_toast.dart';
 import 'providers/products.dart';
 
 void main() async {
@@ -33,20 +33,25 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(375, 812),
       builder: (BuildContext context, Widget? child) {
-        return MultiProvider(providers: [ChangeNotifierProvider(create: (_) => Products()),
-        ],
-        child: GetMaterialApp(
-          title: 'Laundry App',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            scaffoldBackgroundColor: Constants.scaffoldBackgroundColor,
-            visualDensity: VisualDensity.adaptivePlatformDensity,
-            textTheme: GoogleFonts.poppinsTextTheme(),
-          ),
-          initialRoute: "/splash",
-          onGenerateRoute: _onGenerateRoute,
-        )
-        );
+        return MultiProvider(
+            providers: [
+              ChangeNotifierProvider(
+                create: (_) => Products(),
+              ),
+            ],
+            child: GetMaterialApp(
+              title: 'Laundry App',
+              debugShowCheckedModeBanner: false,
+              builder: BotToastInit(),
+              navigatorObservers: [BotToastNavigatorObserver()],
+              theme: ThemeData(
+                scaffoldBackgroundColor: Constants.scaffoldBackgroundColor,
+                visualDensity: VisualDensity.adaptivePlatformDensity,
+                textTheme: GoogleFonts.poppinsTextTheme(),
+              ),
+              initialRoute: "/splash",
+              onGenerateRoute: _onGenerateRoute,
+            ));
       },
     );
   }
@@ -81,17 +86,17 @@ Route<dynamic> _onGenerateRoute(RouteSettings settings) {
         return registerScreen();
       });
 
-      case "/user-profile":
+    case "/user-profile":
       return MaterialPageRoute(builder: (BuildContext context) {
         return userProfile();
       });
 
-      case "/Nav-bar":
+    case "/Nav-bar":
       return MaterialPageRoute(builder: (BuildContext context) {
         return NavBar();
       });
 
-      case "/home-screen":
+    case "/home-screen":
       return MaterialPageRoute(builder: (BuildContext context) {
         return HomeScreen();
       });
